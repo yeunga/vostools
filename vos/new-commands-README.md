@@ -9,7 +9,7 @@ Initially the new commands will only be supported by the minoc service.
                [-i] [--overwrite] [--quick] [-L] [--ignore] [--head]
                source [source ...] destination
 
-Copy files from source to destination.  A resource ID is required to determine the service to be used. The resource ID will reside in a configuration file. Example resource IDs are ivo://ivoa.net/std/VOSpace#sync-2.1 and http://www.opencadc.org/std/storage#files-1.0. The former uses the vospace service while the latter uses the minoc service.  
+Copy files from source to destination.  A resource ID is required to determine the service to be used. The resource ID will reside in a configuration file. Example resource ID for vospace is ivo://cadc.nrc.ca/vault. Example resource ID for minoc ivo://cadc.nrc.ca/???/minoc, where ??? has yet to be defined. There will be multiple resource IDs for minoc, one per storage stie. 
 
 Positional Argument | Description        |
 ----------------------------|----------------------|
@@ -31,7 +31,7 @@ Optional Arguments | Description     |
 --exclude EXCLUDE | skip files that match pattern (overrides include) |
 --include INCLUDE | only copy files that match pattern |
 -i, --interrogate | ask before overwriting files |
---quick | assuming CANFAR VOSpace, only caompatible with CANFAR VOSpace.|
+--quick | assuming CANFAR VOSpace, only compatible with CANFAR VOSpace.|
 -L, --follow-links | follow symbolic links. Default is to not follow links. |
 --ignore | ignore errors and continue with recursive copy |
 --head | copy only the headers of a file from vospace. Might return an error if the server does not support the operation ona given file type. |
