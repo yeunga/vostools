@@ -43,7 +43,7 @@ Put a local file foo.fits into cadc:TEST. Please note that the '.' at the end wi
 
     vcp foot.fits cadc:TEST/
 
-Put all local files with '.fits' suffix into cadc:TEST.
+Put all local files with '.fits' suffix into cadc:TEST
 
     vcp *.fits cadc:TEST/
     
@@ -73,7 +73,7 @@ Remove one or more files identified by a URI. Wild card will not be supported, e
 
 Positional Argument | Description        |
 ----------------------------|----------------------|
- URI                   | a URI identifying the file to be removed |
+ uri    | a URI identifying the file to be removed |
  
  Optional Arguments | Description     |
 ----------------------------|------------------|
