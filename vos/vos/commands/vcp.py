@@ -23,9 +23,13 @@ from cadcutils import exceptions
 
 __all__ = ['vcp']
 
-DESCRIPTION = """Copy files to and from VOSpace. Always recursive.
-VOSpace service associated to the requested container is discovered via
-registry search.
+DESCRIPTION = """Copy files from source to destination. Always recursive.
+The service (e.g. VOSpace, minoc) associated with the requested container 
+is discovered via registry search. A resource ID is required to to determine 
+the service to be used. The resource ID will reside in a configuration file. 
+Example resource IDs are ivo://ivoa.net/std/VOSpace#sync-2.1 and 
+http://www.opencadc.org/std/storage#files-1.0. The former uses the vospace 
+service while the latter uses the minoc service.
 
 vcp can be used to cutout particular parts of a FITS file if the VOSpace
 server supports the action.
@@ -50,10 +54,14 @@ def vcp():
     parser = CommonParser(description=DESCRIPTION)
     parser.add_argument(
         "source", nargs="+",
-        help="file/directory/dataNode/containerNode to copy from.")
+        help="a URI or a local filename. URI will not support wild card, "
+             "i.e. cadc:TEST/f* will be invalid. Local filename will "
+             "support wild card, e.g. *.fits is valid")
     parser.add_argument(
         "destination",
-        help="file/directory/dataNode/containerNode to copy to")
+        help="a URI or a local filename. URI will not support wild card, "
+             "i.e. cadc:TEST/f* will be invalid. Local filename will "
+             "support wild card, e.g. *.fits is valid")
     parser.add_argument(
         "--exclude", default=None,
         help="skip files that match pattern (overrides include)")
